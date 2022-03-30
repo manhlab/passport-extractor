@@ -53,17 +53,18 @@ def findDate(ner_data):
 
 
 if __name__ == "__main__":
-    file = open("result.txt", "w")
-    p = Path("/data/")
+    file = open("results.txt", "w")
     ner_model = build_model(configs.ner.ner_rus_bert_torch, download=True)
 
-    for name in p.rglob("*"):
-        f = open(name, "r")
-        for line in f:
-            ner_data = ner_model([line])
-            name, surname = findNameWithNer(ner_data)
-            date = findDate(ner_data)
-            # print(ner_data)
-            print(name, surname, date)
-            file.write(name + " " + surname + " " + date + "\n")
-        file.close()
+    # for name in p.rglob("*"):
+    f = open("/content/result.txt", "r")
+    Lines = f.readlines()
+    for line in Lines:
+        print(line)
+        ner_data = ner_model([line])
+        name, surname = findNameWithNer(ner_data)
+        date = findDate(ner_data)
+        print(ner_data)
+        print(name, surname, date)
+        file.write(name + " " + surname + " " + date + "\n")
+    file.close()

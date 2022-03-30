@@ -8,8 +8,8 @@ def text_recognition(file_path, text_file_name):
     result = reader.readtext(file_path, detail=0, paragraph=True)
     with open (text_file_name, "a") as file:
         for line in result:
-            file.write(f"{line}\n")
-        file.write(f"----\n")
+            file.write(f"{line} ")
+        file.write(f"\n")
     
 def contrast(input_image_path, output_image_path):
     color_image = Image.open(input_image_path)
@@ -34,7 +34,7 @@ def black_and_white(input_image_path, output_image_path):
     bw.save(output_image_path)
     
 if __name__=='__main__':
-    directory = './Russian_Passport/images'
+    directory = './yolov5/Russian_Passport/images'
     files = os.listdir(directory)
     for f_name in tqdm.tqdm( files, total=len(files) ):
         file = directory + "/" + f_name
