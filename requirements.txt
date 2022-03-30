@@ -17,7 +17,4 @@ pandas>=1.1.4
 seaborn>=0.11.0
 thop  # FLOPs computation
 easyocr
-"opencv-python-headless<4.3"
-tensorFlow==1.15 
 transformers 
-deeppavlov
